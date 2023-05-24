@@ -1,0 +1,24 @@
+<%- include('../../includes/head', { pageTitle: 'Products' }) %>
+
+<link rel="stylesheet" href="/styles/product.css">
+<!-- <link rel="stylesheet" href="/styles/login.signup.css"> -->
+<link rel="stylesheet" href="/styles/product.card.css">
+<script src="/scripts/cart-management.js" defer></script>
+</head>
+<body>
+    <%- include('../../includes/header') %>
+    <main>
+      <h2>Our Products</h2>
+        <div class="container">
+            <section>
+                <ul id="product-grid">
+                    <% for(const product of products){ %>
+                        <li>
+                            <%- include('../../includes/product-card' ,{product:product})  %>
+                         </li>
+                    <% } %>
+                </ul>
+            </section>
+        </div>
+    </main>
+<%- include('../../includes/footer') %>

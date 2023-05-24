@@ -1,0 +1,49 @@
+<%- include('../../includes/head' , { pageTitle: 'All-Products' }) %>
+    <link rel="stylesheet" href="/styles/login.signup.css">
+    <script src="/scripts/image-preview.js" defer></script>
+    </head>
+
+    <body>
+        <%- include('../../includes/header') %>
+
+            <main>
+                <div class="login-box">
+                    <h1>add new product</h1>
+                    <form action="/admin/products?_csrf=<%=locals.csrfToken%>" method="post"
+                        enctype="multipart/form-data">
+
+                        <div class="user-box">
+                            <input type="text" name="title" required>
+                            <label>Title</label>
+                        </div>
+                        <div class="user-box" id="image-preview">
+                            <p>
+                                <input type="file" name="image" accept="image/*" required>
+                            </p>
+                            <img src="" alt="selected image">
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="summary" required maxlength="250">
+                            <label>Summary</label>
+                        </div>
+                        <div class="user-box">
+                            <input type="number" name="price" required min="10">
+                            <label>Price</label>
+                        </div>
+                        <div class="user-box">
+                            <textarea id="description" name="description" rows="7" required></textarea>
+                            <label>Description</label>
+                        </div>
+                        <button>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Add New
+                        </button>
+                    </form>
+                </div>
+            </main>
+
+
+            <%- include('../../includes/footer') %>

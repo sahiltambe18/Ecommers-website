@@ -1,0 +1,62 @@
+<%- include('../../includes/head', { pageTitle: 'Signup' }) %>
+  <link rel="stylesheet" href="/styles/login.signup.css">
+  </head>
+
+  <%- include('../../includes/header') %>
+
+    <body>
+
+      <div class="login-box">
+        <h1>Signup</h1>
+        <% if(data.message) {%>
+          <section>
+            <h2>Invalid Input</h2>
+            <p><%= data.message %></p>
+          </section>
+          <%  } %>
+        <form action="/signup" method="post">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken  %>">
+          <div class="user-box">
+            <input type="email" name="email" value="<%= data.email %>" id="email" required>
+            <label>E-Mail</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="password" id="password" value="<%= data.password %>" required>
+            <label>Password</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="name" id="name" value="<%= data.name %>" required>
+            <label>Full Name</label>
+          </div>
+          <div class="user-box">
+            <input type="text" id="address" name="address" value="<%= data.address %>" required>
+            <label>Address</label>
+          </div>
+          <div class="user-box">
+            <input type="number" id="postal" name="postal" value="<%= data.postal %>" required>
+            <label>Postal</label>
+          </div>
+          <button>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </button>
+
+          <div class="user-box">
+            <p id="switch-form"><a href="/login">Login Instead</a></p>
+          </div>
+
+        </form>
+      </div>
+      <!-- partial -->
+
+    </body>
+
+    </html>
+    <!-- partial -->
+
+    </body>
+
+    </html>

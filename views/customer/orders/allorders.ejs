@@ -1,0 +1,10 @@
+<%- include('../../includes/head', { pageTitle: 'Your Orders' }) %>
+<link rel="stylesheet" href="/styles/orders.css">
+</head>
+<body>
+    <%- include('../../includes/header') %>
+    <main>
+        <h1>Your Orders</h1>
+        <%- include('../../includes/order-list',{orders:orders}) %>
+    </main>
+<%- include('../../includes/footer') %>

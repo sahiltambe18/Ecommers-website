@@ -1,0 +1,25 @@
+<%- include('../../includes/head', { pageTitle: 'Products' }) %>
+
+    <link rel="stylesheet" href="/styles/product.card.css">
+    <link rel="stylesheet" href="/styles/product.css">
+    <link rel="stylesheet" href="/styles/login.signup.css">
+
+</head>
+
+
+
+<body>
+        <main>
+            <div class="container">
+                <section>
+                    <ul id="product-grid">
+                        <% for(let i in [1,2,3,4,5,6,7,8,9]){ %>
+                            <li>
+                                <%- include('../../includes/product-card') %>
+                            </li>
+                            <% } %>
+                    </ul>
+                </section>
+            </div>
+        </main>
+<%- include('../../includes/footer') %>
