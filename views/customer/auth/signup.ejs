@@ -17,23 +17,23 @@
         <form action="/signup" method="post">
           <input type="hidden" name="_csrf" value="<%= locals.csrfToken  %>">
           <div class="user-box">
-            <input type="email" name="email" value="<%= data.email %>" id="email" required>
+            <input type="email" name="email" value="<%= data.email %>" id="email" autocomplete="off" required>
             <label>E-Mail</label>
           </div>
           <div class="user-box">
-            <input type="password" name="password" id="password" value="<%= data.password %>" required>
+            <input type="password" name="password" id="password" value="<%= data.password %>" autocomplete="off" required>
             <label>Password</label>
           </div>
           <div class="user-box">
-            <input type="text" name="name" id="name" value="<%= data.name %>" required>
+            <input type="text" name="name" id="name" value="<%= data.name %>"autocomplete="off" required>
             <label>Full Name</label>
           </div>
           <div class="user-box">
-            <input type="text" id="address" name="address" value="<%= data.address %>" required>
+            <input type="text" id="address" name="address" value="<%= data.address %>" autocomplete="off" required>
             <label>Address</label>
           </div>
           <div class="user-box">
-            <input type="number" id="postal" name="postal" value="<%= data.postal %>" required>
+            <input type="number" id="postal" name="postal" value="<%= data.postal %>" autocomplete="off" required>
             <label>Postal</label>
           </div>
           <button>

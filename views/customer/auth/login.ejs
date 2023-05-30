@@ -17,7 +17,7 @@
     <form action="/login" method="post">
       <input type="hidden" name="_csrf" value="<%= locals.csrfToken  %>">
       <div class="user-box">
-        <input type="email" name="email" value="<%= data.email %>" required>
+        <input type="email" name="email" value="<%= data.email %>"  required>
         <label>E-Mail</label>
       </div>
       <div class="user-box">

@@ -12,6 +12,7 @@ main{
     width: 15rem;
     height: 14.25rem;
     transition: 0.5s;
+    border-radius: 2%;
 }
 
 .container .card .face.face1{
@@ -43,6 +44,7 @@ main{
     height: 10rem;
     overflow: hidden;
     width: fit-content;
+    border-radius: 2%;
 }
 
 .container .card .face.face1 .content h3{
