@@ -55,9 +55,7 @@ app.use(session({
     }
 }));
 
-// app.use(fileUpload({
-//     useTempFiles:true
-// }))
+
 app.use(csurf());
 app.use(csrfToken);
 
@@ -75,7 +73,7 @@ app.use( '/admin',adminRoutes);
 app.use('/orders' ,orderRoutes);
 app.use(error500);
 
-let PORT = 300;
+let PORT = 3000;
 
 if (process.env.PORT) {
     PORT = process.env.PORT;
