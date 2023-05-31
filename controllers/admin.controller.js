@@ -1,5 +1,14 @@
 const Product = require("../models/product.model");
 const Order = require("../models/order.model");
+const cloudinary = require('cloudinary').v2;
+
+
+cloudinary.config({
+    cloud_name: "dx8brgan4",
+    api_key: "871977616987182",
+    api_secret: "tg08kP9B9H8aaQICRYtOXmzEqzQ"
+});
+
 
 async function getProducts(req, res, next) {
     try {
@@ -17,9 +26,20 @@ function getNewProducts(req, res) {
 
 async function createNewProduct(req, res, next) {
 
+    
+
+    let imgUrl;
+    await cloudinary.uploader.upload(req.file.path, { public_id: req.file.filename })
+        .then((data) => {
+            imgUrl = data.secure_url;
+        }).catch((err) => {
+            console.log(err);
+        });
+
+
     let product = new Product({
         ...req.body,
-        image: req.file.filename
+        image: imgUrl
     });
     try {
         await product.addProduct();
@@ -42,13 +62,25 @@ async function updateform(req, res, next) {
 }
 
 async function updateProduct(req, res, next) {
+
     const product = new Product({
         ...req.body,
         _id: req.params.id
     });
+
     if (req.file) {
-        product.replacelmage(req.file.filename)
+
+        let imgUrl;
+        await cloudinary.uploader.upload(req.file.path, { public_id: req.file.filename , })
+            .then((data) => {
+                imgUrl = data.secure_url;
+            }).catch((err) => {
+                console.log(err);
+            });
+
+        product.replacelmage(imgUrl)
     }
+
     try {
         await product.updateProduct();
         res.redirect("/admin/products");

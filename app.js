@@ -5,6 +5,7 @@ const csurf = require('csurf');
 const session = require('express-session');
 const mongodbStore = require('connect-mongodb-session');
 
+
 const baseRoutes = require('./routes/base.routes');
 const authRoutes = require('./routes/auth.routes');
 const productRoutes = require("./routes/product.routes");
@@ -13,6 +14,8 @@ const cartRoutes = require("./routes/cart.routes");
 const orderRoutes = require("./routes/orders.routes");
 
 const db = require('./data/database');
+
+
 
 const csrfToken = require('./middlewares/csrf-token');
 const error500 = require("./middlewares/handle-error");
@@ -37,7 +40,6 @@ app.set('views', path.join(__dirname, 'views'));
 
 // app.use(express.static("public"));
 app.use(express.static(__dirname + '/public'));
-app.use("/products/assets/",express.static("files"));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -53,7 +55,9 @@ app.use(session({
     }
 }));
 
-
+// app.use(fileUpload({
+//     useTempFiles:true
+// }))
 app.use(csurf());
 app.use(csrfToken);
 
@@ -71,9 +75,15 @@ app.use( '/admin',adminRoutes);
 app.use('/orders' ,orderRoutes);
 app.use(error500);
 
+let PORT = 300;
+
+if (process.env.PORT) {
+    PORT = process.env.PORT;
+}
+
 db.connectToDatabase()
     .then(
-        () => { app.listen(3000, console.log("server is live at localhost:3000")) }
+        () => { app.listen(3000, console.log(`server is live at localhost:${PORT}`)) }
     )
     .catch((err) => {
         console.log("failed to connect database")

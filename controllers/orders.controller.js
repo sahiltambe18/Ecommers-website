@@ -5,7 +5,7 @@ const User = require('../models/user.model');
 
 async function addOrder(req,res ,next) {
     const cart = res.locals.cart;
-    console.log(cart);
+    
     let user;
     try {
         user = await User.findByid(res.locals.id);

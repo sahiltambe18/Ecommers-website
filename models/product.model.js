@@ -55,8 +55,8 @@ class Product {
         this.updateImageData();
     }
     updateImageData() {
-        this.imagePath = `files/images/${this.image}`;
-        this.imageUrl = `/products/assets/images/${this.image}`;
+        this.imagePath = this.image;
+        this.imageUrl = this.image;
     }
 
     async updateProduct() {
