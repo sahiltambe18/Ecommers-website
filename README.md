@@ -3,7 +3,9 @@
  
  to run on your system
  clone this repo and 
+ 
  run npm install
+ 
  then npm start
  
  requirements 
