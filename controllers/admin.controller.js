@@ -1,3 +1,4 @@
+const dotenv=require("dotenv").config()
 const Product = require("../models/product.model");
 const Order = require("../models/order.model");
 const cloudinary = require('cloudinary').v2;
@@ -5,8 +6,8 @@ const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
     cloud_name: "dx8brgan4",
-    api_key: "871977616987182",
-    api_secret: "tg08kP9B9H8aaQICRYtOXmzEqzQ"
+    api_key: process.env.CLOUD_API,
+    api_secret: process.env.API_KEY
 });
 
 

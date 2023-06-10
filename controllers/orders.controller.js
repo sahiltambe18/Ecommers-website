@@ -1,4 +1,5 @@
-const stripe = require("stripe")('sk_test_51ND9ahSEBqf0e78zerSy4F4OkKztJAGG2sSKCR9tcPqEWlwi62xGcAQYrUdlybvR3UyBX1N4eqLOS0KCKNStjWY200SOAlQyZM');
+const dotenv=require("dotenv").config()
+const stripe = require("stripe")(process.env.STRIPE_ID);
 
 const Order = require('../models/order.model');
 const User = require('../models/user.model');
@@ -33,8 +34,8 @@ async function addOrder(req,res ,next) {
         }),
 
         mode: 'payment',
-        success_url: `http://localhost:3000/orders/success`,
-        cancel_url: `http://localhost:3000/orders/failure`,
+        success_url: `https://sahil-ecommerce-website.onrender.com/orders/success`,
+        cancel_url: `https://sahil-ecommerce-website.onrender.com/orders/failure`,
       });
     
       res.redirect(303, session.url);
