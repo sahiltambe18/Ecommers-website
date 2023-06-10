@@ -26,7 +26,7 @@ const cartInitialiser = require("./middlewares/cart");
 const MongodbStore = mongodbStore(session);
 
 const sessionStore = new MongodbStore({
-    uri: 'mongodb://127.0.0.1:27017',
+    uri: process.env.MONGODB_URL,
     databaseName: "online-store",
     collection: "sessions"
 });
